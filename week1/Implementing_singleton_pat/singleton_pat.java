@@ -1,3 +1,5 @@
+package Implementing_singleton_pat;
+
 public class singleton_pat {
 
     private static singleton_pat i;

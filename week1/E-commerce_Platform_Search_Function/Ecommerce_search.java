@@ -35,9 +35,8 @@ class ClothingSearch implements ProductSearch {
 // Factory Class
 class SearchFactory {
     public ProductSearch getSearch(String type) {
-        if (type == null) {
+        if (type == null)
             return null;
-        }
         if (type.equalsIgnoreCase("BOOK")) {
             return new BookSearch();
         } else if (type.equalsIgnoreCase("ELECTRONICS")) {
@@ -52,14 +51,14 @@ class SearchFactory {
 // Client Code
 public class Ecommerce_search {
     public static void main(String[] args) {
-        SearchFactory factory = new SearchFactory();
         Scanner scanner = new Scanner(System.in);
+        SearchFactory factory = new SearchFactory();
 
         System.out.println("Welcome to E-Commerce Search!");
-        System.out.println("Enter product type to search (Book, Electronics, Clothing): ");
+        System.out.print("Enter product type to search (Book, Electronics, Clothing): ");
         String type = scanner.nextLine();
 
-        System.out.println("Enter your search query: ");
+        System.out.print("Enter your search query: ");
         String query = scanner.nextLine();
 
         ProductSearch search = factory.getSearch(type);
@@ -67,8 +66,9 @@ public class Ecommerce_search {
         if (search != null) {
             search.search(query);
         } else {
-            System.out.println("Invalid product type entered.");
+            System.out.println("❌ Invalid product type entered.");
         }
+
         scanner.close();
     }
 }
